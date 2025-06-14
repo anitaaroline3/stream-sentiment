@@ -348,5 +348,5 @@ def main():
         3. *Dashboard Analytics*: Lihat visualisasi distribusi sentimen dalam dataset
         """)
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
