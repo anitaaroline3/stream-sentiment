@@ -218,7 +218,7 @@ def main():
         return
     
     if stemmer is None:
-        st.warning("⚠ Stemmer tidak dapat dimuat. Analisis akan dilakukan tanpa stemming.")
+        st.warning("⚠️ Stemmer tidak dapat dimuat. Analisis akan dilakukan tanpa stemming.")
     
     # Sidebar
     st.sidebar.title("🎯 Menu Navigasi")
@@ -261,11 +261,11 @@ def main():
         st.markdown("---")
         st.markdown("""
         ### 🚀 Fitur Unggulan:
-        - *Preprocessing Lengkap*: Text cleaning dan stemming bahasa Indonesia
-        - *Model Canggih*: Random Forest dengan TF-IDF vectorization
-        - *Visualisasi Interaktif*: Dashboard dengan chart dan grafik
-        - *Batch Processing*: Analisis ribuan teks sekaligus
-        - *Real-time*: Prediksi instan dengan confidence score
+        - **Preprocessing Lengkap**: Text cleaning dan stemming bahasa Indonesia
+        - **Model Canggih**: Random Forest dengan TF-IDF vectorization
+        - **Visualisasi Interaktif**: Dashboard dengan chart dan grafik
+        - **Batch Processing**: Analisis ribuan teks sekaligus
+        - **Real-time**: Prediksi instan dengan confidence score
         """)
     
     elif page == "📝 Prediksi Tunggal":
@@ -313,7 +313,7 @@ def main():
                     else:
                         st.markdown(f"""
                         <div class="sentiment-neutral">
-                            <h3>⚖ Sentimen: {sentiment}</h3>
+                            <h3>⚖️ Sentimen: {sentiment}</h3>
                             <p><strong>Tingkat Kepercayaan: {confidence:.2f}%</strong></p>
                             <p>Teks menunjukkan sentimen yang netral atau informatif.</p>
                         </div>
@@ -342,20 +342,20 @@ def main():
                     st.plotly_chart(fig, use_container_width=True)
                 
                 # Processed text info
-                with st.expander("ℹ Detail Preprocessing"):
+                with st.expander("ℹ️ Detail Preprocessing"):
                     processed = preprocess_text(user_input, stemmer)
-                    st.write("*Teks Original:*")
+                    st.write("**Teks Original:**")
                     st.write(user_input)
-                    st.write("*Teks Setelah Preprocessing:*")
+                    st.write("**Teks Setelah Preprocessing:**")
                     st.write(processed)
                     
             else:
-                st.warning("⚠ Mohon masukkan teks untuk dianalisis.")
+                st.warning("⚠️ Mohon masukkan teks untuk dianalisis.")
     
     elif page == "📊 Analisis Batch":
         st.header("📊 Analisis Batch")
         
-        st.markdown("Upload file CSV dengan kolom *'text'* untuk analisis sentimen massal.")
+        st.markdown("Upload file CSV dengan kolom **'text'** untuk analisis sentimen massal.")
         
         uploaded_file = st.file_uploader(
             "Pilih file CSV:",
@@ -374,7 +374,7 @@ def main():
                 else:
                     st.success(f"✅ File berhasil diupload! Ditemukan {len(df_upload)} baris data.")
                     
-                    with st.expander("👁 Preview Data"):
+                    with st.expander("👁️ Preview Data"):
                         st.dataframe(df_upload.head(10))
                     
                     if st.button("🚀 Jalankan Analisis Batch", type="primary"):
@@ -509,17 +509,17 @@ def main():
             
             col1, col2, col3 = st.columns(3)
             with col1:
-                st.write("*Positif*")
+                st.write("**Positif**")
                 st.progress(positif_count/total_data)
                 st.write(f"{positif_count/total_data*100:.1f}%")
             
             with col2:
-                st.write("*Negatif*")
+                st.write("**Negatif**")
                 st.progress(negatif_count/total_data)
                 st.write(f"{negatif_count/total_data*100:.1f}%")
             
             with col3:
-                st.write("*Netral*")
+                st.write("**Netral**")
                 st.progress(netral_count/total_data)
                 st.write(f"{netral_count/total_data*100:.1f}%")
                 
@@ -535,17 +535,17 @@ def main():
             st.markdown("""
             ### 🎯 Analisis Sentimen Bahasa Indonesia
             
-            Aplikasi ini menggunakan *Random Forest Classifier* yang telah dilatih khusus untuk menganalisis sentimen teks bahasa Indonesia. Model dapat mengklasifikasikan teks ke dalam tiga kategori:
+            Aplikasi ini menggunakan **Random Forest Classifier** yang telah dilatih khusus untuk menganalisis sentimen teks bahasa Indonesia. Model dapat mengklasifikasikan teks ke dalam tiga kategori:
             
-            - ✅ *Positif*: Sentimen yang menunjukkan perasaan baik, puas, atau optimis
-            - ❌ *Negatif*: Sentimen yang menunjukkan ketidakpuasan, kritik, atau pesimis  
-            - ⚖ *Netral*: Sentimen yang objektif, informatif, atau tidak memihak
+            - ✅ **Positif**: Sentimen yang menunjukkan perasaan baik, puas, atau optimis
+            - ❌ **Negatif**: Sentimen yang menunjukkan ketidakpuasan, kritik, atau pesimis  
+            - ⚖️ **Netral**: Sentimen yang objektif, informatif, atau tidak memihak
             
             ### 🎯 Keunggulan Model:
-            - *Akurasi Tinggi*: Dilatih dengan dataset yang besar dan seimbang
-            - *Preprocessing Lengkap*: Text cleaning dan stemming bahasa Indonesia
-            - *Fast Prediction*: Prediksi real-time dengan confidence score
-            - *Robust*: Dapat menangani berbagai jenis teks informal dan formal
+            - **Akurasi Tinggi**: Dilatih dengan dataset yang besar dan seimbang
+            - **Preprocessing Lengkap**: Text cleaning dan stemming bahasa Indonesia
+            - **Fast Prediction**: Prediksi real-time dengan confidence score
+            - **Robust**: Dapat menangani berbagai jenis teks informal dan formal
             """)
         
         with tab2:
@@ -553,7 +553,7 @@ def main():
             ### 🔍 Detail Teknis
             
             #### Preprocessing Pipeline:
-            
+            ```
             1. Text Cleaning
                ├── Hapus URL, mention (@), hashtag (#)
                ├── Hapus angka dan karakter khusus
@@ -567,18 +567,18 @@ def main():
                ├── Max features: 5000
                ├── N-gram range: (1,2)
                └── Vectorization
-            
+            ```
             
             #### Model Architecture:
-            - *Algorithm*: Random Forest Classifier
-            - *Data Balancing*: SMOTE (Synthetic Minority Oversampling)
-            - *Feature Selection*: TF-IDF dengan bigram
-            - *Cross Validation*: Stratified split
+            - **Algorithm**: Random Forest Classifier
+            - **Data Balancing**: SMOTE (Synthetic Minority Oversampling)
+            - **Feature Selection**: TF-IDF dengan bigram
+            - **Cross Validation**: Stratified split
             
             #### Model Performance:
-            - *Training*: Menggunakan dataset berlabel dengan distribusi seimbang
-            - *Validation*: Stratified train-test split (80:20)
-            - *Metrics*: Accuracy, Precision, Recall, F1-Score
+            - **Training**: Menggunakan dataset berlabel dengan distribusi seimbang
+            - **Validation**: Stratified train-test split (80:20)
+            - **Metrics**: Accuracy, Precision, Recall, F1-Score
             """)
         
         with tab3:
@@ -610,7 +610,7 @@ def main():
             """)
         
         st.markdown("---")
-        st.info("🚀 *Model ini dikembangkan untuk membantu analisis sentimen teks bahasa Indonesia dengan akurasi dan kecepatan tinggi.*")
+        st.info("🚀 **Model ini dikembangkan untuk membantu analisis sentimen teks bahasa Indonesia dengan akurasi dan kecepatan tinggi.**")
 
 if __name__ == "__main__":
     main()
