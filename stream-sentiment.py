@@ -113,7 +113,7 @@ def preprocess_text(text, stemmer):
     
     return text
 
-def predict_sentiment_dummy(text):
+def predict_sentiment(text):
     """Prediksi sentimen dummy untuk testing"""
     import random
     
